@@ -23,3 +23,6 @@ docker run -it \
 > [!NOTE]
 > network used in the 'dezoomcamp2024_learn_docker' docker container has the name '1_docker_terraform_default'
 > that is because by default a docker compose file will create a network with name 'folder_name_default'
+
+
+testing
