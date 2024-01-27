@@ -1,10 +1,9 @@
-FROM python
+FROM python:3.9.1
 
-COPY requirements.txt /app/requirements.txt
-WORKDIR /app/
+RUN apt-get install wget
 RUN pip install -r requirements.txt
 
-COPY main.py main.py
+WORKDIR /app
+COPY main.py main.py 
 
-
-ENTRYPOINT [ "python", "/app/main.py"]
+ENTRYPOINT [ "python", "main.py" ]
