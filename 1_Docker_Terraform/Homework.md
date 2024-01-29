@@ -57,6 +57,31 @@ Download this data and put it into Postgres (with jupyter notebooks or with a pi
 3. Copy contents from .csv into newly created table
 4. Change main.py to collect green_taxi data instead of yellow for homework
 
+```sql
+CREATE TABLE green_taxi_trips AS
+select  "VendorID"::INTEGER, 
+		"lpep_pickup_datetime"::DATE, 
+		"lpep_dropoff_datetime"::DATE, 
+		"store_and_fwd_flag"::TEXT, 
+		"RatecodeID"::INTEGER, 
+		"PULocationID"::INTEGER, 
+		"DOLocationID"::INTEGER, 
+		"passenger_count"::INTEGER, 
+		"trip_distance"::REAL, 
+		"fare_amount"::REAL, 
+		"extra"::REAL, 
+		"mta_tax"::REAL, 
+		"tip_amount"::REAL, 
+		"tolls_amount"::REAL, 
+		"ehail_fee"::REAL, 
+		"improvement_surcharge"::REAL, 
+		"total_amount"::REAL, 
+		"payment_type"::INTEGER, 
+		"trip_type"::INTEGER, 
+		"congestion_surcharge"::REAL
+from green_taxi_trips_stg
+```
+
 ## Question 3. Count records 
 
 How many taxi trips were totally made on September 18th 2019?
@@ -66,7 +91,7 @@ Tip: started and finished on 2019-09-18.
 Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in the format timestamp (date and hour+min+sec) and not in date.
 
 - 15767
-- 15612
+- 15612 ***
 - 15859
 - 89009
 
@@ -79,7 +104,7 @@ Tip: For every trip on a single day, we only care about the trip with the longes
 
 - 2019-09-18
 - 2019-09-16
-- 2019-09-26
+- 2019-09-26 ***
 - 2019-09-21
 
 
@@ -90,7 +115,7 @@ Consider lpep_pickup_datetime in '2019-09-18' and ignoring Borough has Unknown
 Which were the 3 pick up Boroughs that had a sum of total_amount superior to 50000?
  
 - "Brooklyn" "Manhattan" "Queens"
-- "Bronx" "Brooklyn" "Manhattan"
+- "Bronx" "Brooklyn" "Manhattan" ***
 - "Bronx" "Manhattan" "Queens" 
 - "Brooklyn" "Queens" "Staten Island"
 
@@ -104,7 +129,7 @@ Note: it's not a typo, it's `tip` , not `trip`
 
 - Central Park
 - Jamaica
-- JFK Airport
+- JFK Airport ***
 - Long Island City/Queens Plaza
 
 
