@@ -52,6 +52,10 @@ You will also need the dataset with zones:
 
 Download this data and put it into Postgres (with jupyter notebooks or with a pipeline)
 
+1. Add zone_lookup.csv to the docker image
+2. Create table for zone_lookup in PGAdmin
+3. Copy contents from .csv into newly created table
+4. Change main.py to collect green_taxi data instead of yellow for homework
 
 ## Question 3. Count records 
 
