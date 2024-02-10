@@ -20,7 +20,6 @@ services:
       - 6789:6789
     volumes:
       - .:/home/src/
-      - ~/Documents/secrets/personal-gcp.json:/home/src/personal-gcp.json
     restart: on-failure:5
   postgres:
     image: postgres:14
@@ -34,3 +33,15 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "${POSTGRES_PORT}:5432"
+    volumes:
+      - "./data:/var/lib/postgresql/data:rw"
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: ${PROJECT_NAME}-pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "8080:80"
+    volumes:
+      - ./data_pgadmin:/var/lib/pgadmin
