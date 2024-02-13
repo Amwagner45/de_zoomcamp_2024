@@ -45,10 +45,10 @@ def create_table(conn, color, year):
 
 
 conn = duckdb.connect(database="ny_taxi.db", read_only=False)
-create_table(conn, "green", "2020")
+create_table(conn, "fhv", "2019")
 
 conn.execute("show tables;")
 print(conn.fetchall())
 
-conn.execute("select * from green_tripdata_2020 limit 10;")
+conn.execute("select * from fhv_tripdata_2019 limit 10;")
 print(conn.fetchone())

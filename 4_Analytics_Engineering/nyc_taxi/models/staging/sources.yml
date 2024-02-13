@@ -1,0 +1,12 @@
+
+version: 2
+
+sources:
+  - name: ny_taxi
+    schema: main
+
+    tables:
+    - name: fhv_tripdata_2019
+      description: For-Hire Vehicle Trip Records in 2019
+      
+    
